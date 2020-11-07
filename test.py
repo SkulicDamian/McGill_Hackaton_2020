@@ -69,14 +69,14 @@ sr2.setModel("edsr", 2)
 result = sr2.upsample(image)
 result2 = sr2.upsample(image2)
 
-cv2.imwrite("./upscaled.png", result)
+#cv2.imwrite("./upscaled.png", result)
 
-imgStack = stackImages(1.0,([image,result],[image2,result2]))
-cv2.imshow("stacked", imgStack)
-
-
-
-
+#imgStack = stackImages(1.0,([image,result],[image2,result2]))
+#cv2.imshow("stacked", imgStack)
+cv2.imshow("pic 3", image)
+cv2.imshow("pic 4", image2)
+cv2.imshow("pic 3*", result)
+cv2.imshow("pic 4*", result2)
 
 
 
