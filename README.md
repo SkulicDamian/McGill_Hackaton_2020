@@ -61,13 +61,13 @@ Original paper: Deep laplacian pyramid networks for fast and accurate super-reso
 Benchmarks
 Comparing different algorithms. Scale x4 on monarch.png (768x512 image).
 
-Inference time in seconds (CPU)	PSNR	SSIM
-ESPCN	0.01159	26.5471	0.88116
-EDSR	3.26758	29.2404	0.92112
-FSRCNN	0.01298	26.5646	0.88064
-LapSRN	0.28257	26.7330	0.88622
-Bicubic	0.00031	26.0635	0.87537
-Nearest neighbor	0.00014	23.5628	0.81741
-Lanczos	0.00101	25.9115	0.87057
+Inference     time in seconds (CPU)	          PSNR     	       SSIM
+ESPCN	               0.01159	               26.5471	         0.88116
+EDSR	               3.26758	               29.2404	         0.92112
+FSRCNN	             0.01298	               26.5646	         0.88064
+LapSRN	             0.28257	               26.7330	         0.88622
+Bicubic	             0.00031	               26.0635	         0.87537
+Nearest neighbor	   0.00014	               23.5628	         0.81741
+Lanczos	             0.00101	               25.9115	         0.87057
 
 
