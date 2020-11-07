@@ -1,6 +1,6 @@
 import cv2
-from cv2 import dnn_superres
 import numpy as np
+
 
 def stackImages(scale,imgArray):
     rows = len(imgArray)
@@ -33,34 +33,3 @@ def stackImages(scale,imgArray):
         ver = hor
     return ver
 
-
-##model 1
-sr = dnn_superres.DnnSuperResImpl_create()
-
-image = cv2.imread('Ressources/picture_png_1.PNG')
-image2 = cv2.imread('Ressources/picture_png_2.PNG')
-
-path = "Ressources/ESPCN_x4_small_model.pb"
-sr.readModel(path)
-
-sr.setModel("espcn", 4)
-
-result = sr.upsample(image)
-result2 = sr.upsample(image2)
-
-cv2.imwrite("./upscaled.png", result)
-
-imgStack = stackImages(2.0,([image,result],[image2,result2]))
-cv2.imshow("stacked", imgStack)
-
-
-##model 2
-
-
-
-
-
-
-
-
-cv2.waitKey(0)
