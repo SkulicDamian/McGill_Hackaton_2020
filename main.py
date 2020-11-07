@@ -1,16 +1,21 @@
-# This is a sample Python script.
+import cv2
+from cv2 import dnn_superres
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# Create an SR object
+sr = dnn_superres.DnnSuperResImpl_create()
 
+# Read image
+image = cv2.imread('Ressources/pic_1.jpg')
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# Read the desired model
+path = "Ressources/pre_trained_model.pb"
+sr.readModel(path)
 
+# Set the desired model and scale to get correct pre- and post-processing
+sr.setModel("edsr", 3)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+# Upscale the image
+result = sr.upsample(image)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# Save the image
+cv2.imwrite("./upscaled.jpg", result)
