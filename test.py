@@ -56,6 +56,23 @@ cv2.imshow("stacked", imgStack)
 
 ##model 2
 
+sr2 = dnn_superres.DnnSuperResImpl_create()
+
+image = cv2.imread('Ressources/picture_png_3.PNG')
+image2 = cv2.imread('Ressources/picture_png_4.PNG')
+
+path = "Ressources/EDSR_x4_best_performing.pb"
+sr2.readModel(path)
+
+sr2.setModel("edsr", 2)
+
+result = sr2.upsample(image)
+result2 = sr2.upsample(image2)
+
+cv2.imwrite("./upscaled.png", result)
+
+imgStack = stackImages(1.0,([image,result],[image2,result2]))
+cv2.imshow("stacked", imgStack)
 
 
 
