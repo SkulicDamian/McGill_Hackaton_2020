@@ -5,7 +5,7 @@ from cv2 import dnn_superres
 sr = dnn_superres.DnnSuperResImpl_create()
 
 # Read image
-image = cv2.imread('Ressources/pic_1.jpg')
+image = cv2.imread('Ressources/picture_png_1.PNG')
 
 # Read the desired model
 path = "Ressources/pre_trained_model.pb"
@@ -18,4 +18,4 @@ sr.setModel("edsr", 3)
 result = sr.upsample(image)
 
 # Save the image
-cv2.imwrite("./upscaled.jpg", result)
+cv2.imwrite("./upscaled.png", result)
